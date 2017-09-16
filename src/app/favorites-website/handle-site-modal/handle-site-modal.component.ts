@@ -75,7 +75,7 @@ export class HandleSiteModalComponent implements OnInit {
     this.setForm();
   }
 
-  private handleFavoriteSite(website:Website){
+   handleFavoriteSite(website){
     this.favoritewebsite = this.favoritewebsiteForm.value;
     if(this.actionlogtype === this.actionLogType.webSiteAdded ){
       this.websiteid = this.utilsService.guid();
