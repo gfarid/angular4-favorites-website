@@ -1,0 +1,13 @@
+.navigation-bar {
+    background: turquoise;
+    padding: 0;
+    text-align: center;
+    padding-top: 30px;
+}
+
+
+
+.favorites-website-root {
+    align-items: stretch;
+    height: 100%;
+}

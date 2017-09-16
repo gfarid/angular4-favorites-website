@@ -1,0 +1,29 @@
+ <form novalidate [formGroup]="favoritewebsiteForm" (ngSubmit)="handleFavoriteSite()">
+    <div class="modal-header">
+        <h4 class="modal-title">{{title}}</h4>
+        <button  *ngIf="actionlogtype == actionLogType.webSiteRemoved" type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+   </div>
+    <div class="modal-body" *ngIf="actionlogtype !== actionLogType.webSiteRemoved">
+        <div class="form-group">
+            <label for="websitename">Website name</label>
+            <input type="text" class="form-control" id="websitename" formControlName="name" placeholder="Enter youe favorite website">
+            <error-messages [control]="favoritewebsiteForm.controls['name']"></error-messages>
+        </div>
+        <div class="form-group">
+          <label for="websiteurl">URL</label>
+          <input type="text" class="form-control" id="websiteurl" formControlName="url" placeholder="enter your favorite website url">
+          <error-messages [control]="favoritewebsiteForm.controls['url']"></error-messages>
+        </div>
+    </div>
+    <div class="modal-body" *ngIf="actionlogtype === actionLogType.webSiteRemoved">
+            <p>The action will remove the favorite website permanently</p>
+    </div>
+    <div class="modal-footer">
+        <input type="submit" class="btn btn-outline-dark" [disabled]="actionlogtype !== actionLogType.webSiteRemoved && !favoritewebsiteForm.valid" [value]="buttonName" />
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cancel</button>
+    </div>
+ </form>
+ 
+ 

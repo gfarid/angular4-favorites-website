@@ -1,0 +1,103 @@
+
+.tiles-view {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.table-title {
+    margin-left: 20px;
+}
+
+.search-fav-site-form{
+    margin-bottom: 10px;
+}
+
+.card {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+
+.edit-icon {
+    display: none;
+}
+
+.delete-icon {
+    display: none;
+}
+
+.website-row:hover .edit-icon ,.website-row:hover .delete-icon{
+    display: block;
+}
+
+.card:hover .edit-icon ,.card:hover .delete-icon{
+    display: block;
+}
+
+.card-body span {
+    display: inline-block;
+    margin: 10px;
+}
+
+.search-website-form {
+    display: block;
+}
+
+i.fa.fa-search {
+    position: absolute;
+    top: 25%;
+    right: 2%;
+    z-index: 999;
+}
+
+.fav-website-header {
+    padding :3% 1%;
+}
+
+input.form-control.search-fav-site {
+    border-radius: 10px;
+}
+
+.fa.fa-plus {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.add-btn {
+    padding-right: 25px;
+}
+
+@media (min-width: 576px) {
+    h3 {
+        font-size: 1.4rem;
+        padding-top: 5px;
+    }
+
+    .tiles-view {
+        justify-content: flex-start;
+    }
+    .search-website-form{
+        display: flex;
+    }
+
+    .table-title {
+        margin-left: 0px;
+    }
+    
+    .search-fav-site-form{
+        margin-bottom: 0px;
+    }
+}
+
+
+button:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.add-btn:hover, .btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #7400FF;
+    border-color:#7400FF;
+}

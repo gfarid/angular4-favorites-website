@@ -1,0 +1,4 @@
+<span class="error" [hidden]="!(formControl.touched && formControl.invalid)" *ngFor="let e of getErrors()">
+    <i class="fa fa-times" aria-hidden="true"></i>
+    {{e}}
+</span>

@@ -1,0 +1,57 @@
+<div class="row fav-website-header">
+    <div class="col-12 col-sm-4 col-md-4">
+      <h3 class="table-title">
+        Favorite Sites
+      </h3>
+    </div>
+
+    <div class="col-12 col-sm-7 col-md-8 search-website-form">
+        <form class="col-md-7 col-sm-6 col-12 search-fav-site-form">
+            <div class="input-group">
+              <input type="text" class="form-control search-fav-site"  [(ngModel)]="filteredKey" name="filteredKey" placeholder="filter by website name or url">
+                <i class="fa fa-search" aria-hidden="true" ></i>  
+            </div>
+        </form>
+        <div class="btn-group col-md-4 col-sm-3 col-12" role="group" aria-label="...">
+            <button type="button" class="btn btn-outline-secondary" placement="top" ngbTooltip="toogle view" (click)="toggleView()">
+                <i class="fa fa-th-large" aria-hidden="true" ></i>
+            </button>
+            <button class="btn btn-secondary add-btn" (click)="openFavWebsiteModal()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+        </div>
+    </div>
+</div>
+
+  <div class="row fav-website-content">
+      <div class="col table-responsive" *ngIf="isgridview">
+          <table class="table table-hover">
+            <tr class="header">
+              <th>Website name</th>
+              <th>Url</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+            <tr *ngFor="let fav of favoritesWebsite | filterFavoriteWebsite: filteredKey" class="website-row">
+              <td>{{fav.name}}</td> 
+              <td>{{fav.url}}</td>
+              <td (click)="editFavWebsiteModal(fav)"><i class="fa fa-pencil-square-o edit-icon" aria-hidden="true" placement="top" ngbTooltip="edit"></i></td>
+              <td (click)="deleteFavWebsiteModal(fav)"><i class="fa fa-trash-o delete-icon" aria-hidden="true" placement="top" ngbTooltip="delete"></i></td>
+            </tr>  
+          </table>
+      </div>
+      <div *ngIf="istilesview" class="col tiles-view">
+          <div *ngFor="let fav of favoritesWebsite | filterFavoriteWebsite: filteredKey" class="card" style="width: 20rem;">
+              <img class="card-img-top" src="http://placehold.it/150/92c952" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">{{fav.name}}</h4>
+                <p class="card-text">{{fav.url}}</p>
+              </div>
+              <div class="card-body">
+                  <span (click)="editFavWebsiteModal(fav)" ><i class="fa fa-pencil-square-o edit-icon" aria-hidden="true"></i></span>
+                  <span (click)="deleteFavWebsiteModal(fav)"><i class="fa fa-trash-o delete-icon" aria-hidden="true"></i></span>
+                </div>
+          </div>
+      </div>
+  </div>
+
+
